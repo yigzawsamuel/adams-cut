@@ -21,25 +21,38 @@ export function BookingModal() {
       aria-modal="true"
       aria-label="Termin buchen"
       className="fixed inset-0 z-[200] flex items-center justify-center p-4"
-      style={{ background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(8px)' }}
+      style={{ background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(10px)' }}
       onClick={(e) => { if (e.target === e.currentTarget) close() }}
     >
       <div
         className="w-full max-w-[480px] max-h-[90dvh] overflow-auto
-          rounded-3xl flex flex-col border border-[rgba(212,160,23,0.18)]
-          shadow-[0_32px_80px_rgba(0,0,0,0.6)] animate-pop-in"
-        style={{ background: '#1A0E08' }}
+          rounded-3xl flex flex-col animate-pop-in"
+        style={{
+          background: '#1C2235',
+          border: '1px solid rgba(61,158,191,0.2)',
+          boxShadow: '0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(61,158,191,0.08)',
+        }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-7 py-5
-          border-b border-[rgba(250,247,242,0.07)]">
-          <span className="font-display text-xl font-bold text-cream">Termin buchen</span>
+        <div className="flex items-center justify-between px-7 py-5"
+          style={{ borderBottom: '1px solid rgba(238,242,247,0.06)' }}>
+          <span className="font-display text-xl font-bold" style={{ color: '#EEF2F7' }}>
+            Termin buchen
+          </span>
           <button
             onClick={close}
             aria-label="Schließen"
-            className="w-8 h-8 rounded-full bg-[rgba(250,247,242,0.08)] flex items-center justify-center
-              text-muted hover:bg-[rgba(250,247,242,0.15)] hover:text-cream
+            className="w-8 h-8 rounded-full flex items-center justify-center
               transition-colors duration-200 cursor-pointer active:scale-95"
+            style={{ background: 'rgba(238,242,247,0.07)', color: '#7A8BA0' }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(238,242,247,0.13)'
+              ;(e.currentTarget as HTMLElement).style.color = '#EEF2F7'
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(238,242,247,0.07)'
+              ;(e.currentTarget as HTMLElement).style.color = '#7A8BA0'
+            }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
@@ -51,15 +64,18 @@ export function BookingModal() {
 
         {/* Body */}
         <div className="px-7 py-8 flex flex-col gap-5">
-          <p className="text-muted text-[0.92rem] leading-relaxed">
+          <p className="text-[0.92rem] leading-relaxed" style={{ color: '#7A8BA0' }}>
             Wähle deinen Wunschtermin direkt online oder ruf uns an.
           </p>
 
           {/* Cal.com placeholder */}
-          <div className="rounded-2xl border border-dashed border-[rgba(212,160,23,0.22)]
-            bg-[rgba(212,160,23,0.04)] p-8 text-center">
-            <div className="w-12 h-12 rounded-full border border-[rgba(212,160,23,0.3)]
-              flex items-center justify-center mx-auto mb-3 text-gold">
+          <div className="rounded-2xl p-8 text-center"
+            style={{
+              border: '1px dashed rgba(61,158,191,0.25)',
+              background: 'rgba(61,158,191,0.04)',
+            }}>
+            <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3"
+              style={{ border: '1px solid rgba(61,158,191,0.3)', color: '#3D9EBF' }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                 <rect x="3" y="4" width="18" height="18" rx="2"/>
@@ -68,27 +84,41 @@ export function BookingModal() {
                 <line x1="3" y1="10" x2="21" y2="10"/>
               </svg>
             </div>
-            <p className="text-[0.85rem] text-muted mb-2">
+            <p className="text-[0.85rem] mb-2" style={{ color: '#7A8BA0' }}>
               Cal.com Widget hier einbetten
             </p>
-            <code className="text-[0.72rem] text-gold bg-[rgba(212,160,23,0.1)] px-3 py-1.5 rounded-md">
+            <code className="text-[0.72rem] px-3 py-1.5 rounded-md"
+              style={{ color: '#3D9EBF', background: 'rgba(61,158,191,0.1)' }}>
               calComLink in config.ts eintragen
             </code>
           </div>
 
-          <div className="flex items-center gap-3 text-[rgba(250,247,242,0.2)] text-[0.75rem]">
-            <div className="flex-1 h-px bg-[rgba(250,247,242,0.07)]"/>
+          <div className="flex items-center gap-3 text-[0.75rem]"
+            style={{ color: 'rgba(238,242,247,0.2)' }}>
+            <div className="flex-1 h-px" style={{ background: 'rgba(238,242,247,0.07)' }}/>
             <span>oder direkt anrufen</span>
-            <div className="flex-1 h-px bg-[rgba(250,247,242,0.07)]"/>
+            <div className="flex-1 h-px" style={{ background: 'rgba(238,242,247,0.07)' }}/>
           </div>
 
           <a
             href={salonConfig.kontakt.telefonHref}
             className="flex items-center justify-center gap-3
-              border border-[rgba(250,247,242,0.1)] rounded-xl py-3.5
-              text-[rgba(250,247,242,0.6)] text-[0.9rem] font-medium
-              hover:border-[rgba(212,160,23,0.3)] hover:bg-[rgba(212,160,23,0.04)] hover:text-gold
+              rounded-xl py-3.5 text-[0.9rem] font-medium
               transition-all duration-200 active:scale-95"
+            style={{
+              border: '1px solid rgba(238,242,247,0.1)',
+              color: 'rgba(238,242,247,0.6)',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(61,158,191,0.35)'
+              ;(e.currentTarget as HTMLElement).style.background = 'rgba(61,158,191,0.06)'
+              ;(e.currentTarget as HTMLElement).style.color = '#3D9EBF'
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(238,242,247,0.1)'
+              ;(e.currentTarget as HTMLElement).style.background = 'transparent'
+              ;(e.currentTarget as HTMLElement).style.color = 'rgba(238,242,247,0.6)'
+            }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="1.5" aria-hidden="true">

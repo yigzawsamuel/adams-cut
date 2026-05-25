@@ -23,15 +23,20 @@ export function FloatingPill() {
       className={[
         'fixed bottom-7 left-1/2 z-[90]',
         'flex items-center gap-2 whitespace-nowrap',
-        'bg-gold text-[#0C0907] px-7 py-[0.85rem]',
         'text-[0.78rem] font-semibold tracking-[0.08em] uppercase',
-        'rounded-full shadow-[0_8px_30px_rgba(212,160,23,0.35)]',
+        'rounded-full',
         'transition-[opacity,transform] duration-400',
         'active:scale-95',
         show
           ? 'opacity-100 -translate-x-1/2 translate-y-0 pointer-events-auto'
           : 'opacity-0 -translate-x-1/2 translate-y-3 pointer-events-none',
       ].join(' ')}
+      style={{
+        background: 'linear-gradient(135deg,#3D9EBF,#5FBAD4)',
+        color: '#141824',
+        padding: '0.85rem 1.75rem',
+        boxShadow: '0 8px 30px rgba(61,158,191,0.4), 0 2px 8px rgba(0,0,0,0.3)',
+      }}
     >
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" strokeWidth="2.5" aria-hidden="true">

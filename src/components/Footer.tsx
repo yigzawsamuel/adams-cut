@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { LogoSVG }    from './LogoSVG'
 import { salonConfig } from '@/lib/config'
@@ -6,8 +8,8 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-[rgba(250,247,242,0.07)] py-12 px-[clamp(1.5rem,5vw,4rem)]"
-      style={{ background: '#0C0907' }}>
+    <footer className="border-t py-12 px-[clamp(1.5rem,5vw,4rem)]"
+      style={{ background: '#0F1320', borderColor: 'rgba(61,158,191,0.1)' }}>
       <div className="max-w-salon mx-auto">
 
         {/* Top row */}
@@ -15,12 +17,14 @@ export function Footer() {
 
           {/* Brand */}
           <div className="flex items-center gap-3.5">
-            <LogoSVG className="w-[36px] h-[42px] flex-shrink-0" />
+            <LogoSVG className="w-[36px] h-[42px] flex-shrink-0" color="#3D9EBF" />
             <div>
-              <div className="font-display font-bold text-[1rem] text-cream tracking-[0.06em]">
+              <div className="font-display font-bold text-[1rem] tracking-[0.06em]"
+                style={{ color: '#EEF2F7' }}>
                 {salonConfig.name}
               </div>
-              <div className="text-[0.62rem] tracking-[0.15em] uppercase text-muted mt-0.5">
+              <div className="text-[0.62rem] tracking-[0.15em] uppercase mt-0.5"
+                style={{ color: '#7A8BA0' }}>
                 {salonConfig.adresse.stadt} · {salonConfig.adresse.bezirk}
               </div>
             </div>
@@ -28,7 +32,8 @@ export function Footer() {
 
           {/* Nav links */}
           <div>
-            <div className="text-[0.65rem] tracking-[0.15em] uppercase text-muted mb-3.5">Navigation</div>
+            <div className="text-[0.65rem] tracking-[0.15em] uppercase mb-3.5"
+              style={{ color: '#7A8BA0' }}>Navigation</div>
             <ul className="flex flex-col gap-2 list-none p-0">
               {[
                 { href: '#leistungen',  label: 'Leistungen'  },
@@ -38,7 +43,8 @@ export function Footer() {
               ].map(({ href, label }) => (
                 <li key={href}>
                   <a href={href}
-                    className="text-[0.85rem] text-[rgba(250,247,242,0.45)] hover:text-cream transition-colors duration-200">
+                    className="text-[0.85rem] transition-colors duration-200 hover:text-[#3D9EBF]"
+                    style={{ color: 'rgba(238,242,247,0.4)' }}>
                     {label}
                   </a>
                 </li>
@@ -48,17 +54,20 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <div className="text-[0.65rem] tracking-[0.15em] uppercase text-muted mb-3.5">Rechtliches</div>
+            <div className="text-[0.65rem] tracking-[0.15em] uppercase mb-3.5"
+              style={{ color: '#7A8BA0' }}>Rechtliches</div>
             <ul className="flex flex-col gap-2 list-none p-0">
               <li>
                 <Link href="/impressum"
-                  className="text-[0.85rem] text-[rgba(250,247,242,0.45)] hover:text-cream transition-colors duration-200">
+                  className="text-[0.85rem] transition-colors duration-200 hover:text-[#3D9EBF]"
+                  style={{ color: 'rgba(238,242,247,0.4)' }}>
                   Impressum
                 </Link>
               </li>
               <li>
                 <Link href="/datenschutz"
-                  className="text-[0.85rem] text-[rgba(250,247,242,0.45)] hover:text-cream transition-colors duration-200">
+                  className="text-[0.85rem] transition-colors duration-200 hover:text-[#3D9EBF]"
+                  style={{ color: 'rgba(238,242,247,0.4)' }}>
                   Datenschutz
                 </Link>
               </li>
@@ -67,17 +76,20 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <div className="text-[0.65rem] tracking-[0.15em] uppercase text-muted mb-3.5">Kontakt</div>
+            <div className="text-[0.65rem] tracking-[0.15em] uppercase mb-3.5"
+              style={{ color: '#7A8BA0' }}>Kontakt</div>
             <ul className="flex flex-col gap-2 list-none p-0">
               <li>
                 <a href={salonConfig.kontakt.telefonHref}
-                  className="text-[0.85rem] text-[rgba(250,247,242,0.45)] hover:text-cream transition-colors duration-200">
+                  className="text-[0.85rem] transition-colors duration-200 hover:text-[#3D9EBF]"
+                  style={{ color: 'rgba(238,242,247,0.4)' }}>
                   {salonConfig.kontakt.telefon}
                 </a>
               </li>
               <li>
                 <a href={salonConfig.kontakt.instagramUrl} target="_blank" rel="noopener noreferrer"
-                  className="text-[0.85rem] text-[rgba(250,247,242,0.45)] hover:text-cream transition-colors duration-200">
+                  className="text-[0.85rem] transition-colors duration-200 hover:text-[#3D9EBF]"
+                  style={{ color: 'rgba(238,242,247,0.4)' }}>
                   {salonConfig.kontakt.instagram}
                 </a>
               </li>
@@ -86,18 +98,26 @@ export function Footer() {
         </div>
 
         {/* Bottom row */}
-        <div className="flex flex-wrap justify-between items-center gap-4
-          pt-6 border-t border-[rgba(250,247,242,0.07)]">
-          <p className="text-[0.75rem] text-[rgba(250,247,242,0.2)]">
+        <div className="flex flex-wrap justify-between items-center gap-4 pt-6 border-t"
+          style={{ borderColor: 'rgba(61,158,191,0.08)' }}>
+          <p className="text-[0.75rem]" style={{ color: 'rgba(238,242,247,0.2)' }}>
             © {year} {salonConfig.name}. Alle Rechte vorbehalten.
           </p>
           <a
             href={salonConfig.kontakt.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-[38px] h-[38px] rounded-[10px] bg-[rgba(250,247,242,0.05)]
-              flex items-center justify-center text-muted
-              hover:bg-[rgba(212,160,23,0.12)] hover:text-gold transition-all duration-200"
+            className="w-[38px] h-[38px] rounded-[10px] flex items-center justify-center
+              transition-all duration-200"
+            style={{ background: 'rgba(61,158,191,0.06)', border: '1px solid rgba(61,158,191,0.12)', color: '#7A8BA0' }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(61,158,191,0.15)'
+              ;(e.currentTarget as HTMLElement).style.color = '#3D9EBF'
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(61,158,191,0.06)'
+              ;(e.currentTarget as HTMLElement).style.color = '#7A8BA0'
+            }}
             aria-label="Instagram"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"

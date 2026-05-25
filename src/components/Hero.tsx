@@ -1,9 +1,9 @@
 'use client'
 
-import { useBooking } from '@/context/BookingContext'
-import { LogoSVG }    from './LogoSVG'
+import { useBooking }  from '@/context/BookingContext'
+import { LogoSVG }     from './LogoSVG'
 import { salonConfig } from '@/lib/config'
-import { CountUp }    from './CountUp'
+import { CountUp }     from './CountUp'
 
 export function Hero() {
   const { open } = useBooking()
@@ -11,54 +11,104 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-[100dvh] grid grid-cols-1 md:grid-cols-2 pt-[72px] overflow-hidden"
+      className="relative min-h-[100dvh] grid grid-cols-1 md:grid-cols-2 pt-[72px] overflow-hidden"
       style={{
         background: `
-          radial-gradient(ellipse 70% 60% at 100% 100%, rgba(196,98,45,0.07) 0%, transparent 55%),
-          radial-gradient(ellipse 50% 40% at 5% 10%,   rgba(212,160,23,0.04) 0%, transparent 50%),
-          #0C0907
+          radial-gradient(ellipse 80% 70% at 110% 110%, rgba(61,158,191,0.09) 0%, transparent 55%),
+          radial-gradient(ellipse 50% 50% at -10% 0%,  rgba(61,158,191,0.05) 0%, transparent 50%),
+          #141824
         `,
       }}
     >
+      {/* Decorative dot grid */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(238,242,247,0.04) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+        }}
+      />
+
+      {/* Large watermark text behind everything */}
+      <div
+        className="absolute bottom-0 right-0 font-display font-black leading-none
+          select-none pointer-events-none hidden md:block"
+        aria-hidden="true"
+        style={{
+          fontSize: 'clamp(14rem, 28vw, 24rem)',
+          color: 'transparent',
+          WebkitTextStroke: '1px rgba(61,158,191,0.06)',
+          lineHeight: 0.85,
+          userSelect: 'none',
+        }}
+      >
+        AC
+      </div>
+
       {/* ── Left ── */}
-      <div className="flex flex-col justify-center px-[clamp(1.5rem,5vw,4rem)] py-[clamp(3rem,8vw,7rem)]">
+      <div className="relative z-10 flex flex-col justify-center
+        px-[clamp(1.5rem,5vw,4rem)] py-[clamp(3rem,8vw,7rem)]">
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-2.5
-          border border-[rgba(212,160,23,0.2)] bg-[rgba(212,160,23,0.06)]
-          px-4 py-[0.42rem] rounded-full w-fit mb-8 animate-fade-up">
-          <span className="w-[6px] h-[6px] rounded-full bg-gold flex-shrink-0 animate-blink" />
-          <span className="text-[0.68rem] font-medium tracking-[0.15em] uppercase text-[rgba(250,247,242,0.5)]">
+        <div
+          className="inline-flex items-center gap-2.5 w-fit mb-8"
+          style={{
+            background: 'rgba(61,158,191,0.08)',
+            border: '1px solid rgba(61,158,191,0.22)',
+            borderRadius: '100px',
+            padding: '0.42rem 1.1rem',
+            animation: 'fadeUp 0.7s 0.1s ease both',
+          }}
+        >
+          <span className="w-[6px] h-[6px] rounded-full flex-shrink-0 animate-blink"
+            style={{ background: '#3D9EBF' }} />
+          <span className="text-[0.68rem] font-medium tracking-[0.15em] uppercase"
+            style={{ color: 'rgba(238,242,247,0.55)' }}>
             {salonConfig.adresse.strasse} · {salonConfig.adresse.stadt} Sendling
           </span>
         </div>
 
-        {/* Headline */}
-        <h1 className="font-display font-black leading-[0.95] tracking-[-0.025em]
-          text-[clamp(3.2rem,7.5vw,6rem)] mb-7 animate-fade-up-d1 text-cream">
-          Dein Stil.
-          <span className="block w-20 h-px my-3"
-            style={{ background: 'linear-gradient(90deg, rgba(212,160,23,0.5), transparent)' }} />
-          <span className="shimmer-text">Unser</span>
-          {' '}Handwerk.
+        {/* Headline — staggered entrance */}
+        <h1
+          className="font-display font-black leading-[0.93] tracking-[-0.03em]
+            text-[clamp(3.2rem,7.5vw,6rem)] mb-7"
+          style={{ animation: 'fadeUp 0.8s 0.25s ease both' }}
+        >
+          <span style={{ color: '#EEF2F7' }}>Dein Stil.</span>
+          <span
+            className="block w-16 h-px my-3"
+            style={{ background: 'linear-gradient(90deg, rgba(61,158,191,0.5), transparent)' }}
+          />
+          <span className="steel-text">Unser</span>
+          <span style={{ color: '#EEF2F7' }}>{' '}Handwerk.</span>
         </h1>
 
         {/* Sub */}
-        <p className="text-muted font-light max-w-[40ch] leading-[1.8] text-[0.96rem]
-          mb-9 animate-fade-up-d2">
-          Präzise Schnitte, klassische Rasuren und Bartpflege – direkt am Harras in München Sendling.
+        <p
+          className="max-w-[40ch] leading-[1.82] text-[0.96rem] mb-9"
+          style={{ color: '#7A8BA0', animation: 'fadeUp 0.8s 0.4s ease both' }}
+        >
+          Präzise Schnitte, klassische Rasuren und Bartpflege –
+          direkt am Harras in München Sendling.
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-wrap gap-3.5 mb-12 animate-fade-up-d3">
+        <div className="flex flex-wrap gap-3.5 mb-14"
+          style={{ animation: 'fadeUp 0.8s 0.55s ease both' }}>
           <button
             onClick={open}
-            className="inline-flex items-center gap-2 bg-gold text-[#0C0907]
-              px-8 py-[0.9rem] text-[0.79rem] font-semibold tracking-[0.08em] uppercase
-              rounded-full shadow-[0_4px_20px_rgba(212,160,23,0.25)]
-              hover:brightness-110 hover:-translate-y-0.5
-              hover:shadow-[0_8px_30px_rgba(212,160,23,0.35)]
-              active:scale-95 transition-all duration-200 cursor-pointer"
+            className="inline-flex items-center gap-2 cursor-pointer
+              active:scale-95 transition-all duration-200"
+            style={{
+              background: 'linear-gradient(135deg, #3D9EBF, #5FBAD4)',
+              color: '#141824',
+              padding: '0.9rem 2rem',
+              fontSize: '0.79rem',
+              fontWeight: 600,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              borderRadius: '100px',
+              boxShadow: '0 4px 24px rgba(61,158,191,0.3)',
+            }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -72,78 +122,110 @@ export function Hero() {
 
           <a
             href="#leistungen"
-            className="inline-flex items-center px-8 py-[0.9rem]
-              text-[0.79rem] tracking-[0.08em] uppercase
-              rounded-full border border-[rgba(250,247,242,0.18)] text-cream
-              hover:border-[rgba(250,247,242,0.45)] hover:bg-[rgba(250,247,242,0.05)]
+            className="inline-flex items-center cursor-pointer
               hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
+            style={{
+              border: '1px solid rgba(238,242,247,0.15)',
+              color: '#EEF2F7',
+              padding: '0.9rem 2rem',
+              fontSize: '0.79rem',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              borderRadius: '100px',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(61,158,191,0.45)')}
+            onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(238,242,247,0.15)')}
           >
             Preisliste
           </a>
         </div>
 
-        {/* Stats */}
-        <div className="flex gap-8 animate-fade-up-d5">
-          <div className="border-l border-[rgba(212,160,23,0.25)] pl-4">
-            <div className="font-display font-black text-[1.5rem] text-cream leading-none">
+        {/* Stats — dramatic */}
+        <div className="flex gap-8" style={{ animation: 'fadeUp 0.8s 0.7s ease both' }}>
+          <div style={{ borderLeft: '1.5px solid rgba(61,158,191,0.25)', paddingLeft: '1.1rem' }}>
+            <div className="font-display font-black text-[1.5rem] leading-none" style={{ color: '#EEF2F7' }}>
               <CountUp from={4.2} to={5.0} decimal suffix=" ★" />
             </div>
-            <div className="text-[0.65rem] tracking-[0.12em] uppercase text-muted mt-1">Google Bewertung</div>
+            <div className="text-[0.62rem] tracking-[0.14em] uppercase mt-1" style={{ color: '#7A8BA0' }}>
+              Google Bewertung
+            </div>
           </div>
-          <div className="border-l border-[rgba(212,160,23,0.25)] pl-4">
-            <div className="font-display font-black text-[1.5rem] text-cream leading-none">
+          <div style={{ borderLeft: '1.5px solid rgba(61,158,191,0.25)', paddingLeft: '1.1rem' }}>
+            <div className="font-display font-black text-[1.5rem] leading-none" style={{ color: '#EEF2F7' }}>
               <CountUp from={50} to={80} suffix="+" />
             </div>
-            <div className="text-[0.65rem] tracking-[0.12em] uppercase text-muted mt-1">Bewertungen</div>
+            <div className="text-[0.62rem] tracking-[0.14em] uppercase mt-1" style={{ color: '#7A8BA0' }}>
+              Bewertungen
+            </div>
+          </div>
+          <div style={{ borderLeft: '1.5px solid rgba(61,158,191,0.25)', paddingLeft: '1.1rem' }}>
+            <div className="font-display font-black text-[1.5rem] leading-none" style={{ color: '#EEF2F7' }}>
+              ab 19 €
+            </div>
+            <div className="text-[0.62rem] tracking-[0.14em] uppercase mt-1" style={{ color: '#7A8BA0' }}>
+              Haarschnitt
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ── Right (photo placeholder) ── */}
+      {/* ── Right ── */}
       <div className="relative hidden md:block overflow-hidden">
+        {/* Photo placeholder */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3"
-          style={{ background: 'linear-gradient(145deg, #1A0E08 0%, #0F0703 60%, #1C1009 100%)' }}>
-          <LogoSVG className="w-[72px] h-[84px] opacity-10" />
-          <p className="text-[0.65rem] tracking-[0.16em] uppercase text-cream opacity-20">
+          style={{ background: 'linear-gradient(145deg, #1C2235 0%, #141824 60%, #1A2030 100%)' }}>
+          <LogoSVG className="w-[72px] h-[84px]" color="rgba(61,158,191,0.15)" />
+          <p className="text-[0.65rem] tracking-[0.16em] uppercase"
+            style={{ color: 'rgba(238,242,247,0.15)' }}>
             Foto hier einfügen
           </p>
         </div>
 
         {/* Floating price card */}
-        <div className="absolute bottom-10 left-[-1.5rem]
-          rounded-[18px] px-5 py-4
-          flex items-center gap-4 max-w-[195px]
-          border border-[rgba(212,160,23,0.2)]
-          shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-          animate-float-d2"
-          style={{ background: 'rgba(28,16,9,0.92)', backdropFilter: 'blur(20px)' }}>
-          <div className="w-[38px] h-[38px] rounded-[10px] bg-[rgba(212,160,23,0.12)]
-            flex items-center justify-center flex-shrink-0 text-gold">
+        <div
+          className="absolute bottom-10 left-[-1.5rem] rounded-[18px] px-5 py-4
+            flex items-center gap-4 max-w-[200px] animate-float-d2"
+          style={{
+            background: 'rgba(20,24,36,0.92)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(61,158,191,0.2)',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.4), 0 0 0 0 rgba(61,158,191,0)',
+          }}
+        >
+          <div className="w-[38px] h-[38px] rounded-[10px] flex items-center justify-center flex-shrink-0"
+            style={{ background: 'rgba(61,158,191,0.12)', color: '#3D9EBF' }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
               <path d="M6 3L18 21M18 3L6 21"/>
-              <circle cx="6"  cy="3"  r="2"/>
-              <circle cx="18" cy="3"  r="2"/>
-              <circle cx="6"  cy="21" r="2"/>
-              <circle cx="18" cy="21" r="2"/>
+              <circle cx="6"  cy="3"  r="2"/><circle cx="18" cy="3"  r="2"/>
+              <circle cx="6"  cy="21" r="2"/><circle cx="18" cy="21" r="2"/>
             </svg>
           </div>
           <div>
-            <div className="text-[0.65rem] tracking-[0.1em] uppercase text-muted mb-0.5">Haarschnitt</div>
-            <div className="font-display font-bold text-[1.05rem] text-cream">ab 19 €</div>
+            <div className="text-[0.65rem] tracking-[0.1em] uppercase mb-0.5" style={{ color: '#7A8BA0' }}>
+              Haarschnitt
+            </div>
+            <div className="font-display font-bold text-[1.05rem]" style={{ color: '#EEF2F7' }}>
+              ab 19 €
+            </div>
           </div>
         </div>
 
         {/* Floating rating card */}
-        <div className="absolute top-10 right-8
-          rounded-[14px] px-4 py-3.5 text-center
-          border border-[rgba(212,160,23,0.18)]
-          shadow-[0_12px_40px_rgba(0,0,0,0.4)]
-          animate-float"
-          style={{ background: 'rgba(28,16,9,0.92)', backdropFilter: 'blur(20px)' }}>
-          <div className="text-gold text-[0.85rem] tracking-[0.05em] mb-0.5">★★★★★</div>
-          <div className="font-display font-black text-[1.5rem] text-cream leading-none">5,0</div>
-          <div className="text-[0.6rem] text-muted tracking-[0.1em] uppercase mt-0.5">
+        <div
+          className="absolute top-10 right-8 rounded-[14px] px-4 py-3.5 text-center animate-float"
+          style={{
+            background: 'rgba(20,24,36,0.92)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(61,158,191,0.18)',
+            boxShadow: '0 12px 40px rgba(0,0,0,0.35)',
+          }}
+        >
+          <div className="text-[0.85rem] tracking-[0.05em] mb-0.5" style={{ color: '#3D9EBF' }}>★★★★★</div>
+          <div className="font-display font-black text-[1.5rem] leading-none" style={{ color: '#EEF2F7' }}>
+            5,0
+          </div>
+          <div className="text-[0.6rem] tracking-[0.1em] uppercase mt-0.5" style={{ color: '#7A8BA0' }}>
             {salonConfig.bewertung.anzahl} Bewertungen
           </div>
         </div>
