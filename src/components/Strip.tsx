@@ -17,9 +17,9 @@ export function Strip() {
     <div
       className="overflow-hidden py-[0.65rem]"
       style={{
-        background: '#181D2E',
-        borderTop: '1px solid rgba(61,158,191,0.12)',
-        borderBottom: '1px solid rgba(61,158,191,0.12)',
+        background: '#181818',
+        borderTop:    '1px solid rgba(184,115,51,0.1)',
+        borderBottom: '1px solid rgba(184,115,51,0.1)',
       }}
       aria-hidden="true"
     >
@@ -28,17 +28,17 @@ export function Strip() {
           <span key={i}
             className="inline-flex items-center gap-3 px-5 text-[0.72rem]
               tracking-[0.18em] uppercase whitespace-nowrap"
-            style={{ color: 'rgba(238,242,247,0.3)' }}
+            style={{ color: 'rgba(237,232,225,0.25)' }}
           >
             {item.label}
             {item.value && (
               <>
                 {' '}
-                <span style={{ color: '#3D9EBF', fontWeight: 500 }}>{item.value}</span>
+                <span style={{ color: '#B87333', fontWeight: 500 }}>{item.value}</span>
               </>
             )}
             <span className="w-[3px] h-[3px] rounded-full flex-shrink-0"
-              style={{ background: 'rgba(61,158,191,0.5)' }} />
+              style={{ background: 'rgba(184,115,51,0.4)' }} />
           </span>
         ))}
       </div>

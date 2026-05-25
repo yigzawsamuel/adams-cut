@@ -25,18 +25,20 @@ const config: Config = {
           card2:   '#100804',
           border:  'rgba(250,247,242,0.07)',
         },
-        slate: {
-          DEFAULT: '#141824',
-          card:    '#1C2235',
-          card2:   '#181D2E',
+        anthrazit: {
+          DEFAULT: '#1C1C1C',
+          card:    '#242424',
+          card2:   '#181818',
+          footer:  '#141414',
         },
-        steel: {
-          DEFAULT: '#3D9EBF',
-          light:   '#5FBAD4',
-          dim:     'rgba(61,158,191,0.12)',
+        copper: {
+          DEFAULT: '#B87333',
+          light:   '#D4945A',
+          bright:  '#E8A855',
+          dim:     'rgba(184,115,51,0.12)',
         },
-        'site-text':  '#EEF2F7',
-        'site-muted': '#7A8BA0',
+        'site-text':  '#EDE8E1',
+        'site-muted': '#8A7E72',
       },
       fontFamily: {
         sans:    ['var(--font-dm-sans)',    'ui-sans-serif',  'system-ui'],

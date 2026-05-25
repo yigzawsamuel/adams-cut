@@ -23,7 +23,7 @@ export function FloatingPill() {
       className={[
         'fixed bottom-7 left-1/2 z-[90]',
         'flex items-center gap-2 whitespace-nowrap',
-        'text-[0.78rem] font-semibold tracking-[0.08em] uppercase',
+        'text-[0.78rem] font-bold tracking-[0.08em] uppercase',
         'rounded-full',
         'transition-[opacity,transform] duration-400',
         'active:scale-95',
@@ -32,10 +32,10 @@ export function FloatingPill() {
           : 'opacity-0 -translate-x-1/2 translate-y-3 pointer-events-none',
       ].join(' ')}
       style={{
-        background: 'linear-gradient(135deg,#3D9EBF,#5FBAD4)',
-        color: '#141824',
+        background: 'linear-gradient(135deg,#B87333,#D4945A)',
+        color: '#1C1C1C',
         padding: '0.85rem 1.75rem',
-        boxShadow: '0 8px 30px rgba(61,158,191,0.4), 0 2px 8px rgba(0,0,0,0.3)',
+        boxShadow: '0 8px 30px rgba(184,115,51,0.4), 0 2px 8px rgba(0,0,0,0.4)',
       }}
     >
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
