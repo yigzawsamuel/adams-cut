@@ -4,6 +4,7 @@ import { useBooking }  from '@/context/BookingContext'
 import { LogoSVG }     from './LogoSVG'
 import { salonConfig } from '@/lib/config'
 import { CountUp }     from './CountUp'
+import { HexGrid }     from './HexGrid'
 
 export function Hero() {
   const { open } = useBooking()
@@ -20,6 +21,9 @@ export function Hero() {
         `,
       }}
     >
+      {/* ── Hex ceiling intro animation ── */}
+      <HexGrid />
+
       {/* Large watermark */}
       <div
         className="absolute bottom-0 right-0 font-display font-black leading-none
@@ -36,7 +40,7 @@ export function Hero() {
       </div>
 
       {/* ── Left – content is IMMEDIATELY visible, no opacity-0 animations ── */}
-      <div className="relative z-10 flex flex-col justify-center
+      <div className="relative z-20 flex flex-col justify-center
         px-[clamp(1.5rem,5vw,4rem)] py-[clamp(3rem,8vw,7rem)]">
 
         {/* Location badge */}
@@ -167,7 +171,7 @@ export function Hero() {
       </div>
 
       {/* ── Right – photo placeholder ── */}
-      <div className="relative hidden md:block overflow-hidden">
+      <div className="relative hidden md:block overflow-hidden z-20">
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3"
           style={{ background: 'linear-gradient(145deg, #242424 0%, #1C1C1C 60%, #202020 100%)' }}>
           <LogoSVG className="w-[72px] h-[84px]" color="rgba(184,115,51,0.12)" />

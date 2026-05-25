@@ -108,6 +108,18 @@
 
   /* Marquee pause on hover */
   .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+
+  /* Light section – cream white like shop walls */
+  .section-light {
+    background: #F7F4F0;
+    color: #1A1510;
+  }
+  .section-light .sec-label {
+    color: var(--copper);
+  }
+  .section-light .sec-label::before {
+    background: var(--copper);
+  }
 }
 
 /* ── Keyframes ── */
@@ -136,4 +148,12 @@
 @keyframes drawLine {
   from { transform: scaleX(0); opacity: 0; }
   to   { transform: scaleX(1); opacity: 1; }
+}
+
+/* Hex ceiling intro – each polygon lights up then dims */
+@keyframes hexPulse {
+  0%   { opacity: 0;   stroke-width: 1;   }
+  22%  { opacity: 1;   stroke-width: 2;   stroke: rgba(255,252,245,0.9); fill: rgba(255,252,245,0.06); }
+  60%  { opacity: 0.7; stroke-width: 1.5; stroke: rgba(237,232,225,0.35); }
+  100% { opacity: 0.1; stroke-width: 1;   }
 }

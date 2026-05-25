@@ -15,14 +15,14 @@ export function Buchung() {
 
   return (
     <section id="buchung" className="relative overflow-hidden py-[clamp(5rem,10vw,7rem)]"
-      style={{ background: '#1C1C1C' }}>
+      style={{ background: '#F7F4F0' }}>
 
-      {/* Copper glow */}
+      {/* Subtle copper blush glow */}
       <div aria-hidden="true" className="absolute pointer-events-none"
         style={{
-          right: '-100px', top: '-100px',
-          width: '500px', height: '500px', borderRadius: '50%',
-          background: 'radial-gradient(circle,rgba(184,115,51,0.07) 0%,transparent 70%)',
+          right: '-80px', top: '-80px',
+          width: '400px', height: '400px', borderRadius: '50%',
+          background: 'radial-gradient(circle,rgba(184,115,51,0.06) 0%,transparent 70%)',
         }}
       />
 
@@ -31,22 +31,22 @@ export function Buchung() {
 
           <Reveal>
             <p className="sec-label mb-4">
-              <span style={{ color: 'rgba(184,115,51,0.4)', marginRight: '0.5rem', fontFamily: 'var(--font-playfair)' }}>03</span>
+              <span style={{ color: 'rgba(184,115,51,0.5)', marginRight: '0.5rem', fontFamily: 'var(--font-playfair)' }}>03</span>
               Online buchen
             </p>
             <h2 className="font-display font-bold text-[clamp(2rem,4vw,3rem)]
-              leading-[1.1] mb-4" style={{ color: '#EDE8E1' }}>
+              leading-[1.1] mb-4" style={{ color: '#1A1510' }}>
               Termin in <span className="copper-text">60 Sekunden</span>
             </h2>
             <p className="font-light leading-[1.82] text-[0.95rem] max-w-[40ch] mb-8"
-              style={{ color: '#8A7E72' }}>
+              style={{ color: '#6B5E54' }}>
               Wähle deinen Barber, deine Leistung und deinen Wunschtermin – ohne Anruf.
             </p>
 
             <ul className="flex flex-col gap-3.5 mb-10 list-none p-0">
               {FEATURES.map((f, i) => (
                 <li key={i} className="flex items-center gap-3.5 text-[0.88rem]"
-                  style={{ color: '#8A7E72' }}>
+                  style={{ color: '#6B5E54' }}>
                   <span className="w-[22px] h-[22px] rounded-full flex items-center justify-center flex-shrink-0"
                     style={{ background: 'rgba(184,115,51,0.12)', color: '#B87333' }}>
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
@@ -64,14 +64,14 @@ export function Buchung() {
                 hover:brightness-110 hover:-translate-y-0.5"
               style={{
                 background: 'linear-gradient(135deg,#B87333,#D4945A)',
-                color: '#1C1C1C',
+                color: '#FFFFFF',
                 padding: '0.9rem 2rem',
                 fontSize: '0.79rem',
                 fontWeight: 700,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 borderRadius: '100px',
-                boxShadow: '0 4px 20px rgba(184,115,51,0.3)',
+                boxShadow: '0 4px 20px rgba(184,115,51,0.28)',
               }}>
               Jetzt buchen
             </button>
@@ -80,16 +80,16 @@ export function Buchung() {
           <Reveal delay={150}>
             <div className="rounded-2xl min-h-[400px] flex flex-col"
               style={{
-                background: 'rgba(36,36,36,0.6)',
-                border: '1px solid rgba(184,115,51,0.12)',
-                backdropFilter: 'blur(8px)',
+                background: '#FFFFFF',
+                border: '1px solid rgba(184,115,51,0.15)',
+                boxShadow: '0 4px 40px rgba(28,21,16,0.07)',
               }}>
               <div className="flex items-center gap-2.5 px-6 py-4"
-                style={{ borderBottom: '1px solid rgba(237,232,225,0.06)' }}>
+                style={{ borderBottom: '1px solid rgba(28,21,16,0.06)' }}>
                 <span className="w-2 h-2 rounded-full animate-pulse-dot"
                   style={{ background: '#B87333' }} />
                 <span className="text-[0.68rem] tracking-[0.14em] uppercase"
-                  style={{ color: 'rgba(237,232,225,0.3)' }}>
+                  style={{ color: 'rgba(28,21,16,0.35)' }}>
                   Termin auswählen
                 </span>
               </div>
@@ -105,7 +105,7 @@ export function Buchung() {
                   </svg>
                 </div>
                 <p className="text-[0.88rem] max-w-[26ch]"
-                  style={{ color: 'rgba(237,232,225,0.3)' }}>
+                  style={{ color: 'rgba(28,21,16,0.4)' }}>
                   Cal.com Buchungs-Widget hier einbetten
                 </p>
                 <code className="text-[0.72rem] px-3 py-1.5 rounded-md"
