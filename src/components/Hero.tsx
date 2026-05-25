@@ -96,10 +96,6 @@ export function Hero() {
             </div>
             <div className="text-[0.65rem] tracking-[0.12em] uppercase text-muted mt-1">Bewertungen</div>
           </div>
-          <div className="border-l border-[rgba(212,160,23,0.25)] pl-4">
-            <div className="font-display font-black text-[1.5rem] text-cream leading-none">Mo–Sa</div>
-            <div className="text-[0.65rem] tracking-[0.12em] uppercase text-muted mt-1">9:30 – 19 Uhr</div>
-          </div>
         </div>
       </div>
 

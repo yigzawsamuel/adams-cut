@@ -17,8 +17,9 @@ export default function Impressum() {
       <nav className="fixed inset-x-0 top-0 z-[100] h-[68px]
         flex items-center justify-between
         px-[clamp(1.5rem,5vw,4rem)]
-        bg-[rgba(250,247,242,0.95)] backdrop-blur-[14px]
-        border-b border-brown/10">
+        bg-[rgba(250,247,242,0.97)] backdrop-blur-[14px]
+        border-b border-[#2C1810]/10"
+        style={{ background: 'rgba(250,247,242,0.97)' }}>
         <Link href="/" className="flex items-center gap-2.5">
           <LogoSVG className="w-[30px] h-[30px]" />
           <span className="font-display font-bold text-[1.05rem] text-salon-text">
@@ -36,7 +37,9 @@ export default function Impressum() {
 
       <main className="max-w-[720px] mx-auto
         px-[clamp(1.5rem,5vw,4rem)]
-        pt-[calc(68px+4rem)] pb-24">
+        pt-[calc(68px+4rem)] pb-24
+        text-[#1A0F08]"
+        style={{ background: '#FAF7F2', minHeight: '100vh' }}>
 
         <h1 className="font-display text-[2.5rem] font-bold text-salon-text mb-10">
           Impressum
