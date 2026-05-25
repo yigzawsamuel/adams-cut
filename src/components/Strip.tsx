@@ -1,45 +1,35 @@
 import { salonConfig } from '@/lib/config'
 
 const items = [
-  `Haarschnitt ab 19 €`,
-  `Bartpflege ab 7 €`,
-  `Mo–Fr 9:30–19:00`,
-  `Sa 9:30–18:00`,
-  `Tel ${salonConfig.kontakt.telefon}`,
-  salonConfig.adresse.strasse,
+  { text: 'Haarschnitt', highlight: 'ab 19 €' },
+  { text: 'Bartpflege',  highlight: 'ab 7 €'  },
+  { text: 'Mo–Fr',       highlight: '9:30–19:00' },
+  { text: 'Sa',          highlight: '9:30–18:00' },
+  { text: 'Tel',         highlight: salonConfig.kontakt.telefon },
+  { text: salonConfig.adresse.strasse, highlight: null },
+  { text: '5,0 Sterne auf Google', highlight: null },
 ]
 
 export function Strip() {
-  const double = [...items, ...items]
+  const doubled = [...items, ...items]
 
   return (
-    <div className="bg-brown py-[0.65rem] overflow-hidden" aria-hidden="true">
+    <div className="border-t border-b border-[rgba(250,247,242,0.07)] py-[0.7rem] overflow-hidden"
+      style={{ background: '#100804' }}
+      aria-hidden="true">
       <div className="flex w-max animate-marquee">
-        {double.map((item, i) => (
+        {doubled.map((item, i) => (
           <span
             key={i}
-            className="flex items-center gap-6 px-6
-              text-[0.76rem] tracking-[0.18em] uppercase
-              text-[rgba(250,247,242,0.65)] whitespace-nowrap"
+            className="inline-flex items-center gap-4 px-5
+              text-[0.74rem] tracking-[0.18em] uppercase whitespace-nowrap
+              text-[rgba(250,247,242,0.35)]"
           >
-            {item.includes('19 €') || item.includes('7 €') ? (
-              <>
-                {item.split(' ').slice(0, -2).join(' ')}{' '}
-                <strong className="text-gold">
-                  {item.split(' ').slice(-2).join(' ')}
-                </strong>
-              </>
-            ) : item.startsWith('Tel') ? (
-              <>
-                Tel{' '}
-                <strong className="text-gold">
-                  {salonConfig.kontakt.telefon}
-                </strong>
-              </>
-            ) : (
-              item
+            {item.text}{' '}
+            {item.highlight && (
+              <strong className="text-gold font-medium">{item.highlight}</strong>
             )}
-            <span className="w-[4px] h-[4px] rounded-full bg-rust opacity-60 flex-shrink-0" />
+            <span className="w-[3px] h-[3px] rounded-full bg-rust opacity-60 flex-shrink-0" />
           </span>
         ))}
       </div>

@@ -1,4 +1,5 @@
 import { ScrollProgress }           from '@/components/ScrollProgress'
+import { FloatingPill }              from '@/components/FloatingPill'
 import { Navbar }                    from '@/components/Navbar'
 import { Hero }                      from '@/components/Hero'
 import { Strip }                     from '@/components/Strip'
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <>
       <ScrollProgress />
+      <FloatingPill />
       <Navbar />
       <main>
         <Hero />

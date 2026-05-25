@@ -18,7 +18,13 @@ const config: Config = {
         gold:   '#D4A017',
         rust:   '#C4622D',
         'salon-text': '#1A0F08',
-        muted:  '#7A6455',
+        muted:  '#9A7B6E',
+        night: {
+          DEFAULT: '#0C0907',
+          card:    '#1A0E08',
+          card2:   '#100804',
+          border:  'rgba(250,247,242,0.07)',
+        },
       },
       fontFamily: {
         sans:    ['var(--font-dm-sans)',    'ui-sans-serif',  'system-ui'],
@@ -60,6 +66,14 @@ const config: Config = {
           from: { transform: 'scaleX(0)' },
           to:   { transform: 'scaleX(1)' },
         },
+        shimmer: {
+          from: { backgroundPosition: '-200% center' },
+          to:   { backgroundPosition: '200% center' },
+        },
+        revMar: {
+          from: { transform: 'translateX(0)' },
+          to:   { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'fade-up':    'fadeUp 0.8s ease both',
@@ -76,6 +90,8 @@ const config: Config = {
         'slide-down':   'slideDown 0.25s ease',
         'pop-in':       'popIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both',
         'pulse-dot':    'pulseDot 2s ease-in-out infinite',
+        shimmer:        'shimmer 4s linear infinite',
+        'rev-mar':      'revMar 38s linear infinite',
       },
     },
   },
